@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Supertable_Update_Multiple_Criteria1", "Supertable_Update_Multiple_Criteria1\Supertable_Update_Multiple_Criteria1.dtproj", "{ED7CC83A-226A-4B53-82DC-AE3FABF45669}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ED7CC83A-226A-4B53-82DC-AE3FABF45669}.Development|Default.ActiveCfg = Development
+		{ED7CC83A-226A-4B53-82DC-AE3FABF45669}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FD1C1F05-DAE6-4963-A69D-48C141A1C268}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://dvapp18:8080/tfs/diit
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Supertable_Update_Multiple_Criteria1\\Supertable_Update_Multiple_Criteria1.dtproj
+		SccProjectName1 = Supertable_Update_Multiple_Criteria1
+		SccLocalPath1 = Supertable_Update_Multiple_Criteria1
+	EndGlobalSection
+EndGlobal

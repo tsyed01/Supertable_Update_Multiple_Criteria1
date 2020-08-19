@@ -1,0 +1,664 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/6/2016 10:04:23 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="335DPC868"
+  DTS:CreatorName="OWS\tsyed"
+  DTS:DTSID="{E4B1583D-DD97-43EF-8D7B-2D2BA44F927C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.121"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Supertable_Update_Multiple_Criteria1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{0515B7C3-4418-48E8-8322-CA26E051F9DB}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ES11VdSINFSQL01.Supertable.lcgmsappuser]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{017B53DB-5842-4934-AF12-AEA2883B538F}"
+      DTS:ObjectName="ES11VdSINFSQL01.Supertable.lcgmsappuser">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::ES11VdSINFSQL01SupertableLcgmsappuser_ConnectionString1]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ES11VdSINFSQL01;User ID=lcgmsappuser;Initial Catalog=Supertable;Provider=SQLNCLI11;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAOEL2pU9uLEK9DaK/PHIjFgAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABy2+cj6JAmrYfTwpG0dn9jAAAAAASAAACgAAAAEAAAAHvPRXwSsr4UZNzfCKT3pcAQAAAAcsC6Eacxbe/g3N7N736jpxQAAADMuqjZ/rXM7BHxWiFGH2tvXZB7nA</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SMTP Connection Manager]"
+      DTS:CreationName="SMTP"
+      DTS:Description="SMTP Connection Manager"
+      DTS:DTSID="{409dd335-ab79-4735-bf40-9c857e60522b}"
+      DTS:ObjectName="SMTP Connection Manager">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::SMTPConnectionManager_ConnectionString]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SmtpConnectionManager
+          ConnectionString="SmtpServer=NYCBOEMAILSERVER1;UseWindowsAuthentication=False;EnableSsl=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{5C07AACB-44B3-408A-B187-7297555B5FBA}"
+      DTS:ObjectName="ES11VdSINFSQL01LCGMSLcgmsappuser_ConnectionString">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Data Source=ES11VdSINFSQL01;User ID=lcgmsappuser;password=welcome;Initial Catalog=Supertable;Provider=SQLNCLI11;Persist Security Info=True;Auto Translate=False;</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{633647A0-E798-4415-8D7D-12653467042C}"
+      DTS:ObjectName="ES11VdSINFSQL01SupertableLcgmsappuser_ConnectionString1">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Data Source=ES11VdSINFSQL01;User ID=lcgmsappuser;Password=welcome;Initial Catalog=Supertable;Provider=SQLNCLI11;Persist Security Info=True;Auto Translate=False;</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{7510AA38-37D2-470C-BF80-44F3CBDD9113}"
+      DTS:ObjectName="SMTPConnectionManager_ConnectionString">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">SmtpServer=NYCBOEMAILSERVER1;UseWindowsAuthentication=False;EnableSsl=False;</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{826A2FDF-BDAA-4F9D-92F8-CE2144DFFE96}"
+      DTS:ObjectName="SqlDatabaseServer">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">ES11VdSINFSQL01</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{8AC3737E-A34E-4E94-B99B-A6FD98637B3A}"
+      DTS:ObjectName="Supertable_Update_Multiple_Criteria_SendMailTaskSupertable_Update_Multiple_CriteriaFailed_CCLine">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">BSeymour@schools.nyc.gov</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{103E2DAE-DAA4-47C8-9C9B-4ADB72104EC2}"
+      DTS:ObjectName="Supertable_Update_Multiple_Criteria_SendMailTaskSupertable_Update_Multiple_CriteriaFailed_ToLine">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">tsyed@schools.nyc.gov</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{86CD9E2C-3EB4-4B69-B83A-3019ECC160AC}"
+      DTS:ObjectName="Supertable_Update_Multiple_Criteria_SendMailTaskSupertable_Update_Multiple_Criteria_CCLine">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">BSeymour@schools.nyc.gov</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{83EBD28E-2981-43C5-9264-AE5A8645ECE5}"
+      DTS:ObjectName="Supertable_Update_Multiple_Criteria_SendMailTaskSupertable_Update_Multiple_Criteria_ToLine">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">tsyed@schools.nyc.gov</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3CAFBA5F-5F89-4F4D-A501-8093FF8F111B}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ES11VdSINFSQL01LCGMSLcgmsappuser_ConnectionString]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecuteSQLTask_Connection">
+      <DTS:VariableValue
+        DTS:DataType="8">Data Source=ES11VdSINFSQL01;User ID=lcgmsappuser;password=welcome;Initial Catalog=Supertable;Provider=SQLNCLI11;Persist Security Info=True;Auto Translate=False;</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7748A5F4-F872-47F7-81BE-82A6D6AEBB7A}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::message]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="message">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3CEE0BBF-DC9F-4B45-8987-15DFF25112A3}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::SMTPConnectionManager_ConnectionString]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SMTPConnectionManager_ConnectionString">
+      <DTS:VariableValue
+        DTS:DataType="8">SmtpServer=NYCBOEMAILSERVER1;UseWindowsAuthentication=False;EnableSsl=False;</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3CA8CDE2-44C3-41B3-A08A-48A95F81120D}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::SqlDatabaseServer]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SqlDatabaseServer">
+      <DTS:VariableValue
+        DTS:DataType="8">ES11VdSINFSQL01</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E601FF43-B107-4354-A82B-BA8DFB778589}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::Supertable_Update_Multiple_Criteria_SendMailTaskSupertable_Update_Multiple_CriteriaFailed_CCLine]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Supertable_Update_Multiple_Criteria_SendMailTaskSupertable_Update_Multiple_CriteriaFailed_CCLine">
+      <DTS:VariableValue
+        DTS:DataType="8">BSeymour@schools.nyc.gov</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{536FFA37-AB10-4340-AC78-61282633424B}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::Supertable_Update_Multiple_Criteria_SendMailTaskSupertable_Update_Multiple_CriteriaFailed_ToLine]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Supertable_Update_Multiple_Criteria_SendMailTaskSupertable_Update_Multiple_CriteriaFailed_ToLine">
+      <DTS:VariableValue
+        DTS:DataType="8">tsyed@schools.nyc.gov</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8F926EE7-C350-435F-BD06-5E825863EDC0}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::Supertable_Update_Multiple_Criteria_SendMailTaskSupertable_Update_Multiple_Criteria_CCLine]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Supertable_Update_Multiple_Criteria_SendMailTaskSupertable_Update_Multiple_Criteria_CCLine">
+      <DTS:VariableValue
+        DTS:DataType="8">BSeymour@schools.nyc.gov</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{66FFDD09-BA96-4624-8151-2424FF86B9E6}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::Supertable_Update_Multiple_Criteria_SendMailTaskSupertable_Update_Multiple_Criteria_ToLine]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Supertable_Update_Multiple_Criteria_SendMailTaskSupertable_Update_Multiple_Criteria_ToLine">
+      <DTS:VariableValue
+        DTS:DataType="8">tsyed@schools.nyc.gov</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7BCD65AF-EE9F-4378-BFF0-5CB0702BB1AC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Supertable_Update_Multiple_Criteria_SwitchKey">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task - Supertable_Update_Multiple_Criteria"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task - Supertable_Update_Multiple_Criteria"
+      DTS:DTSID="{b7e23116-ddfe-4e55-8e0e-adccc4f6f905}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task - Supertable_Update_Multiple_Criteria"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{017B53DB-5842-4934-AF12-AEA2883B538F}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="Exec Supertable.dbo.usp_Supertbl_Incremental_Update_Multiple_Criteria_To_Refresh_Supertable ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::message"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Send Mail Task - Supertable_Update_Multiple_Criteria"
+      DTS:CreationName="Microsoft.SendMailTask"
+      DTS:Description="Send Mail Task - Supertable_Update_Multiple_Criteria000"
+      DTS:DTSID="{d0e68e67-79af-47b8-b4fb-c7196069544f}"
+      DTS:ExecutableType="Microsoft.SendMailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Send Mail Task - Supertable_Update_Multiple_Criteria"
+      DTS:TaskContact="Send Mail Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1" />
+      <DTS:PropertyExpression
+        DTS:Name="CCLine">@[$Package::Supertable_Update_Multiple_Criteria_SendMailTaskSupertable_Update_Multiple_Criteria_CCLine]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="MessageSource">"Output Message from SP: usp_Supertbl_Incremental_Update_Multiple_Criteria_To_Refresh_Supertable: " + @[User::message] + "
+
+Stored Procedure to generate Incremental Update for the Supertable on an hourly basis 
+
+
+
+It reads Supertable.dbo.Incremental_Update_Options SQL table &amp; process accordingly 
+
+
+
+It uses Static or Dynamic SQL queries and called by SSIS package
+
+
+
+SSIS Package: Supertable_Update_Multiple_Criteria
+
+
+
+Stored Procedure: Supertable.dbo.usp_Supertbl_Incremental_Update_Multiple_Criteria_To_Refresh_Supertable
+
+"</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="Subject">"Successful Process of Supertable Update Multiple Criteria in SQL Server ( " +  @[$Package::SqlDatabaseServer] + ")"</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ToLine">@[$Package::Supertable_Update_Multiple_Criteria_SendMailTaskSupertable_Update_Multiple_Criteria_ToLine]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{409dd335-ab79-4735-bf40-9c857e60522b}"
+          SendMailTask:From="Supertable_Update_Multiple_Criteria@schools.nyc.gov"
+          SendMailTask:To="tsyed@schools.nyc.gov"
+          SendMailTask:CC="BSeymour@schools.nyc.gov"
+          SendMailTask:Subject="Successful Process of Supertable Update Multiple Criteria in SQL Server ( ES11VdSINFSQL01)"
+          SendMailTask:MessageSource="Output Message from SP: usp_Supertbl_Incremental_Update_Multiple_Criteria_To_Refresh_Supertable: &#xA;&#xA;Stored Procedure to generate Incremental Update for the Supertable on an hourly basis &#xA;&#xA;&#xA;&#xA;It reads Supertable.dbo.Incremental_Update_Options SQL table &amp; process accordingly &#xA;&#xA;&#xA;&#xA;It uses Static or Dynamic SQL queries and called by SSIS package&#xA;&#xA;&#xA;&#xA;SSIS Package: Supertable_Update_Multiple_Criteria&#xA;&#xA;&#xA;&#xA;Stored Procedure: Supertable.dbo.usp_Supertbl_Incremental_Update_Multiple_Criteria_To_Refresh_Supertable&#xA;&#xA;" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Send Mail Task - Supertable_Update_Multiple_Criteria Failed"
+      DTS:CreationName="Microsoft.SendMailTask"
+      DTS:Description="Send Mail Task - Supertable_Update_Multiple_Criteria Failed"
+      DTS:DTSID="{e470d9cf-7cb2-4d64-bb9b-c3980164a965}"
+      DTS:ExecutableType="Microsoft.SendMailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Send Mail Task - Supertable_Update_Multiple_Criteria Failed"
+      DTS:TaskContact="Send Mail Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1">
+        <DTS:Property
+          DTS:DataType="8"
+          DTS:Name="EventFilter">2,7,OnError,12,OnTaskFailed</DTS:Property>
+        <DTS:Property
+          DTS:EventName="OnError"
+          DTS:Name="ColumnFilter">
+          <DTS:Property
+            DTS:Name="Computer">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="Operator">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="SourceName">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="SourceID">0</DTS:Property>
+          <DTS:Property
+            DTS:Name="ExecutionID">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="MessageText">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="DataBytes">0</DTS:Property>
+        </DTS:Property>
+        <DTS:Property
+          DTS:EventName="OnTaskFailed"
+          DTS:Name="ColumnFilter">
+          <DTS:Property
+            DTS:Name="Computer">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="Operator">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="SourceName">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="SourceID">0</DTS:Property>
+          <DTS:Property
+            DTS:Name="ExecutionID">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="MessageText">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="DataBytes">0</DTS:Property>
+        </DTS:Property>
+      </DTS:LoggingOptions>
+      <DTS:PropertyExpression
+        DTS:Name="CCLine">@[User::Supertable_Update_Multiple_Criteria_SendMailTaskSupertable_Update_Multiple_CriteriaFailed_CCLine]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="MessageSource">"Output Message from SP: usp_Supertbl_Incremental_Update_Multiple_Criteria_To_Refresh_Supertable: " + @[User::message]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="Subject">"Failed Process of Supertable Update Multiple Criteria in SQL Server ( " +  @[$Package::SqlDatabaseServer] + ")"</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ToLine">@[$Package::Supertable_Update_Multiple_Criteria_SendMailTaskSupertable_Update_Multiple_CriteriaFailed_ToLine]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{409dd335-ab79-4735-bf40-9c857e60522b}"
+          SendMailTask:From="Supertable_Update_Multiple_Criteria1@schools.nyc.gov"
+          SendMailTask:To="tsyed@schools.nyc.gov"
+          SendMailTask:CC="BSeymour@schools.nyc.gov"
+          SendMailTask:Subject="Failed Process of Supertable Update Multiple Criteria in SQL Server ( ES11VdSINFSQL01)"
+          SendMailTask:Priority="High"
+          SendMailTask:MessageSource="Output Message from SP: usp_Supertbl_Incremental_Update_Multiple_Criteria_To_Refresh_Supertable: " xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Send Mail Task Step 01 - System is previously busy &amp; Successfully Exit Out"
+      DTS:CreationName="Microsoft.SendMailTask"
+      DTS:Description="Send Mail Task Step 01 - System is previously busy &amp; Successfully Exit Out"
+      DTS:DTSID="{f32ba198-3d34-446f-8fff-2bb746bc508a}"
+      DTS:ExecutableType="Microsoft.SendMailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Send Mail Task Step 01 - System is previously busy &amp; Successfully Exit Out"
+      DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="Subject">"System is previously busy &amp; Exit Out in " + "Step01 - " + @[$Package::SqlDatabaseServer]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{409dd335-ab79-4735-bf40-9c857e60522b}"
+          SendMailTask:From="Supertable_Update_Multiple_Criteria1@schools.nyc.gov"
+          SendMailTask:To="DATALoadLCGMS@schools.nyc.gov"
+          SendMailTask:Subject="System is previously busy &amp; Exit Out in Step01 - ES11VdSINFSQL01"
+          SendMailTask:MessageSource="Currently, the system is busy by SSIS Job or Datastage job. This Job Is Exiting Out in Step01." xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Send Mail Task Step 01 Problem Reading TS_Switch Process"
+      DTS:CreationName="Microsoft.SendMailTask"
+      DTS:Description="Send Mail Task Step 01 Problem Reading TS_Switch Process"
+      DTS:DTSID="{eaf3e810-5874-4b8d-977e-ff6c85ff7034}"
+      DTS:ExecutableType="Microsoft.SendMailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Send Mail Task Step 01 Problem Reading TS_Switch Process"
+      DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="3">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="Subject">"Problem Reading TS_Switch Process in " + "Step01 - " + @[$Package::SqlDatabaseServer]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{409dd335-ab79-4735-bf40-9c857e60522b}"
+          SendMailTask:From="Supertable_Update_Multiple_Criteria1@schools.nyc.gov"
+          SendMailTask:To="DATALoadLCGMS@schools.nyc.gov"
+          SendMailTask:Subject="Problem Reading TS_Switch Process in Step01 - ES11VdSINFSQL01"
+          SendMailTask:MessageSource="Execution Failed &amp; Roll backed successfully occur in Step10 for the SP Supertable.dbo.usp_Supertbl_Extract_Rows_For_Current_FY" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Step01 Execute SQL Task - Check The Switch"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Step01 Execute SQL Task - Check The Switch"
+      DTS:DTSID="{37866bb5-2445-469b-9103-697b14b0cc66}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Step01 Execute SQL Task - Check The Switch"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{017B53DB-5842-4934-AF12-AEA2883B538F}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="SELECT TS_Switch AS [User::LCGMS_SupertableHourly2_SwitchKey]&#xA;FROM Supertable.dbo.Supertable_IU_TS &#xA;WHERE   TS_Key = '$'&#xA;;"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::Supertable_Update_Multiple_Criteria_SwitchKey" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{9C0CF73E-8D54-4F92-9CDB-85DDE236B5A5}"
+      DTS:From="Package\Execute SQL Task - Supertable_Update_Multiple_Criteria"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Send Mail Task - Supertable_Update_Multiple_Criteria" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{c22d4c4f-977e-4f6d-83ed-ab40f7b38054}"
+      DTS:From="Package\Execute SQL Task - Supertable_Update_Multiple_Criteria"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Send Mail Task - Supertable_Update_Multiple_Criteria Failed"
+      DTS:Value="1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 11]"
+      DTS:CreationName=""
+      DTS:DTSID="{e7d14c15-2da6-4262-b494-34d6e1468a6f}"
+      DTS:From="Package\Step01 Execute SQL Task - Check The Switch"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 11"
+      DTS:To="Package\Send Mail Task Step 01 Problem Reading TS_Switch Process"
+      DTS:Value="1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{F82FB76F-8D9D-4324-A5EB-192510A18E83}"
+      DTS:EvalOp="3"
+      DTS:Expression="@[User::Supertable_Update_Multiple_Criteria_SwitchKey]==0"
+      DTS:From="Package\Step01 Execute SQL Task - Check The Switch"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Execute SQL Task - Supertable_Update_Multiple_Criteria" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{E42805AD-014B-4F52-8C21-1DE465BCC83D}"
+      DTS:EvalOp="3"
+      DTS:Expression="@[User::Supertable_Update_Multiple_Criteria_SwitchKey]==1"
+      DTS:From="Package\Step01 Execute SQL Task - Check The Switch"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Send Mail Task Step 01 - System is previously busy &amp; Successfully Exit Out" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="349,58"
+          Id="Package\Execute SQL Task - Supertable_Update_Multiple_Criteria"
+          TopLeft="86,218.5" />
+        <NodeLayout
+          Size="349,58"
+          Id="Package\Send Mail Task - Supertable_Update_Multiple_Criteria"
+          TopLeft="86,335" />
+        <NodeLayout
+          Size="349,58"
+          Id="Package\Send Mail Task - Supertable_Update_Multiple_Criteria Failed"
+          TopLeft="565.962264150943,218" />
+        <NodeLayout
+          Size="349,58"
+          Id="Package\Send Mail Task Step 01 - System is previously busy &amp; Successfully Exit Out"
+          TopLeft="565.962264150943,133" />
+        <NodeLayout
+          Size="349,58"
+          Id="Package\Send Mail Task Step 01 Problem Reading TS_Switch Process"
+          TopLeft="565.962264150943,44" />
+        <NodeLayout
+          Size="349,58"
+          Id="Package\Step01 Execute SQL Task - Check The Switch"
+          TopLeft="86,46" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="260.5,276.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58.5"
+              Start="0,0"
+              End="0,51">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="435,247.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="130.962264150943,0"
+              Start="0,0"
+              End="123.462264150943,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="123.462264150943,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="46.4897844192215,5,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 11]"
+          TopLeft="435,74">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="130.962264150943,0"
+              Start="0,0"
+              End="123.462264150943,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="123.462264150943,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="46.4897844192215,5,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="260.5,104">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,114.5"
+              Start="0,0"
+              End="0,107">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,107" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,45.5,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="317.333333333333,104">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="423.12893081761,29"
+              Start="0,0"
+              End="423.12893081761,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,7.67940673131774" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,7.67940673131774"
+                    Point2="0,11.6794067313177"
+                    Point3="4,11.6794067313177" />
+                  <mssgle:LineSegment
+                    End="419.12893081761,11.6794067313177" />
+                  <mssgle:CubicBezierSegment
+                    Point1="419.12893081761,11.6794067313177"
+                    Point2="423.12893081761,11.6794067313177"
+                    Point3="423.12893081761,15.6794067313177" />
+                  <mssgle:LineSegment
+                    End="423.12893081761,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="203.564465408805,16.6794067313177,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
